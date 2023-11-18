@@ -78,11 +78,18 @@ function moduleProject2() {
     let targeted = document.querySelector(".targeted");
 
     if (isUp) {
-      console.log("up");
+      if (targeted.parentElement.previousElementSibling) {
+        let idx = Array.from(targeted.parentElement.children).indexOf(targeted);
+      targeted.classList.remove("targeted")
+      targeted.parentElement.previousElementSibling.children[idx].classList.add("targeted")
+      }
     } else if (isDown) {
-      console.log("down");
+      if (targeted.parentElement.nextElementSibling) {
+        let idx = Array.from(targeted.parentElement.children).indexOf(targeted);
+      targeted.classList.remove("targeted")
+      targeted.parentElement.nextElementSibling.children[idx].classList.add("targeted")
+      }
     } else if (isLeft) {
-      console.log("left");
       if (targeted.previousElementSibling) {
       targeted.classList.remove("targeted");
       targeted.previousElementSibling.classList.add("targeted");
