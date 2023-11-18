@@ -69,11 +69,13 @@ function moduleProject2() {
 
   document.addEventListener('keydown', evt => {
     // 👉 TASK 3 - Use the arrow keys to highlight a new square 👈
-    console.log(evt);
-    let isUp ;
-    let isDown;
-    let isLeft;
-    let isRight;
+    console.log(evt.key);
+    let isUp = evt.key === keys.up;
+    let isDown = evt.key === keys.down;
+    let isLeft = evt.key === keys.left;
+    let isRight = evt.key === keys.right;
+
+    let targeted = document.querySelector(".targeted");
 
     if (isUp) {
       console.log("up");
@@ -81,8 +83,15 @@ function moduleProject2() {
       console.log("down");
     } else if (isLeft) {
       console.log("left");
+      if (targeted.previousElementSibling) {
+      targeted.classList.remove("targeted");
+      targeted.previousElementSibling.classList.add("targeted");
+      } 
     } else if (isRight) {
-      console.log("right");
+      if (targeted.nextElementSibling) {
+        targeted.classList.remove("targeted");
+        targeted.nextaElementSibling.classList.add("targeted");
+      } 
     }
     // 👉 TASK 4 - Use the space bar to exterminate a mosquito 👈
 
