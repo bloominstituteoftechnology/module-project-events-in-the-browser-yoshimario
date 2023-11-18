@@ -113,14 +113,21 @@ function moduleProject2() {
     }
     // 👉 TASK 4 - Use the space bar to exterminate a mosquito 👈
     else if (isSpacebar) {
-      let mosquito = targeted.firstChild
+      let mosquito = targeted.firstChild;
 
       if (mosquito && mosquito.dataset.status === "alive") {
-      mosquito.dataset.status = "dead";
-      mosquito.parentElement.style.backgroundColor = 'red'
+        mosquito.dataset.status = "dead";
+        mosquito.parentElement.style.backgroundColor = "red";
       }
       // 👉 TASK 5 - End the game 👈
-    } 
+
+      let liveMosquitoes = document.querySelectorAll('[data-status="alive"]');
+      if (!liveMosquitoes.length) {
+        let elapsed = getTimeElapsed();
+        document.querySelector('p.info').textContent = 
+        `Extermination completed in ${elapsed / 1000} seconds.`;
+      }
+    }
   });
   // 👆 WORK WORK ABOVE THIS LINE 👆
 }
