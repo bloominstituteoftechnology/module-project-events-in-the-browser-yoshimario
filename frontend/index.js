@@ -69,7 +69,21 @@ function moduleProject2() {
 
   document.addEventListener('keydown', evt => {
     // 👉 TASK 3 - Use the arrow keys to highlight a new square 👈
+    console.log(evt);
+    let isUp ;
+    let isDown;
+    let isLeft;
+    let isRight;
 
+    if (isUp) {
+      console.log("up");
+    } else if (isDown) {
+      console.log("down");
+    } else if (isLeft) {
+      console.log("left");
+    } else if (isRight) {
+      console.log("right");
+    }
     // 👉 TASK 4 - Use the space bar to exterminate a mosquito 👈
 
     // 👉 TASK 5 - End the game 👈
